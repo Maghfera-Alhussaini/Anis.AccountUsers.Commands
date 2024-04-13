@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option csharp_namespace = "Anis.AccountUsers.Commands.Grpc.Protos.Demo";
+package anis.account_users.Commands;
+import "google/protobuf/empty.proto";
+
+
+service AccountUsersDemoEvents {
+	rpc AssignUsers(UserRequest) returns(google.protobuf.Empty);
+	rpc DeleteUsers(UserRequest) returns(google.protobuf.Empty);
+}
+message UserRequest{
+	string account_id=1;
+	string user_id=2;
+	int32 sequence=3;
+}

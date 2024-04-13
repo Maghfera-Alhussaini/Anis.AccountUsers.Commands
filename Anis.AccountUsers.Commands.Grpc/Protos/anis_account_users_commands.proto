@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "Anis.AccountUsers.Commands.Grpc.Protos";
+
+package anis.account_users.Commands;
+
+service AccountUsers {
+	rpc AssignUserToAccount (AssignUserToAccountRequest) returns (Response);
+	rpc DeleteUserFromAccount (DeleteUserFromAccountRequest) returns (Response);
+}
+
+message AssignUserToAccountRequest{
+	string accountId = 1;
+	string userId = 2;
+}
+message DeleteUserFromAccountRequest{
+	string accountId = 1;
+	string userId = 2;
+}
+
+message Response {
+	string message = 1;
+}

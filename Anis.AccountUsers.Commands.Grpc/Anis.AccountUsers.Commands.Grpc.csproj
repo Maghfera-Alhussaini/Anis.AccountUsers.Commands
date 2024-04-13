@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>6adda4e7-cd88-452f-abcb-7b6e80c28999</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Protos\anis_account_users_commands.proto" />
+    <None Remove="Protos\anis_account_users_event_history.proto" />
+    <None Remove="Protos\Demo\anis_account_users_demo_events.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Calzolari.Grpc.AspNetCore.Validation" Version="8.0.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.61.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Anis.AccountUseres.Commands.Domain\Anis.AccountUsers.Commands.Domain.csproj" />
+    <ProjectReference Include="..\Anis.AccountUsers.Commands.Infra\Anis.AccountUsers.Commands.Infra.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\anis_account_users_commands.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\anis_account_users_event_history.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\Demo\anis_account_users_demo_events.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+</Project>
